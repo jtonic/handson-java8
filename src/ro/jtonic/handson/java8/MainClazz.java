@@ -1,6 +1,7 @@
 package ro.jtonic.handson.java8;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -15,7 +16,7 @@ import java.util.List;
  */
 public class MainClazz {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         schedule(() -> System.out.println("Hello world!!!"));
 
         final List<String> versions = Arrays.asList("Java 7", "Java 8");
@@ -26,9 +27,17 @@ public class MainClazz {
         versions.sort((o1, o2) -> o2.compareTo(o1));
         System.out.println("versions 2 = " + versions);
 
+        versions.stream().filter(s -> s.equals("Java 8")).map(s -> String.format("Develop %s with pleasure", s)).forEach(System.out::println);
 
-        versions.filter(s -> s.equals("Java 8")).map(s -> String.format("Develop %s with pleasure",
-                s)).forEach(System.out::println);
+        Runnable runnable = () -> System.out.println("Running using lambda expression");
+        Thread t = new Thread(runnable);
+        t.start();
+        t.join();
+
+
+        Comparator<String> c = (left, right) -> left.compareTo(right);
+        final int result = c.compare("Hello", "World");
+        System.out.println("result = " + result);
     }
 
     private static void schedule(ITask task) {
@@ -37,6 +46,11 @@ public class MainClazz {
 
     private static interface ITask {
         public void run();
+    }
+
+    private static void isLambdaAssignableToObject() {
+//        Object lambda1 = () -> System.out.println("Hello world"); does not compile
+        Object lambda2 = (Runnable) () -> System.out.println("Hello world");
     }
 
 }
