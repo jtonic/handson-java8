@@ -1,4 +1,4 @@
-package ro.jtonic.handson.java8.inner;
+package ro.jtonic.handson.java8.lambdas;
 
 class InstanceOuter {
 

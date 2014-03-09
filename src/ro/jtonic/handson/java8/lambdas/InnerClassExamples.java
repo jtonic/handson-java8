@@ -1,4 +1,4 @@
-package ro.jtonic.handson.java8.inner;
+package ro.jtonic.handson.java8.lambdas;
 
 public class InnerClassExamples {
     public static void main(String... args) {

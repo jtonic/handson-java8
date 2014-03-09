@@ -1,4 +1,4 @@
-package ro.jtonic.handson.java8;
+package ro.jtonic.handson.java8.lambdas;
 
 import java.util.Arrays;
 import java.util.Comparator;
