@@ -1,4 +1,4 @@
-package ro.jtonic.handson.java8.tests;
+package ro.jtonic.handson.java8.tests.IntegersCacheTest;
 
 /**
  * Created by jtonic on 09.04.2014.
